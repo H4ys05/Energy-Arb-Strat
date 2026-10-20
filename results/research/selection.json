@@ -1,0 +1,34 @@
+{
+  "selected_at_utc": "2026-10-20T20:09:00.724440+00:00",
+  "criterion": "Highest combined 2024-2025 net profit among candidates improving on the baseline in each year",
+  "development": "2024",
+  "validation": "2025",
+  "untouched_test": "2026-01-01 through latest completed day",
+  "initial_2025_test_failed": true,
+  "model": {
+    "name": "adaptive_w0.5_d0.9_g0",
+    "forecast": "adaptive",
+    "lookback_days": 28,
+    "bias_weight": 0.0,
+    "guard": 0.0,
+    "spot_weight": 0.5,
+    "decay": 0.9
+  },
+  "combined_improvement_pct": 7.169196489746987,
+  "market_selection_rule": {
+    "defined_at_utc": "2026-10-20T20:18:02.887665+00:00",
+    "zones": [
+      "WEST",
+      "NORTH",
+      "N.Y.C.",
+      "LONGIL"
+    ],
+    "criterion": "Largest combined absolute profit difference over 2024-2025, requiring positive baseline profit and positive strategy improvement in each year",
+    "strategy_hyperparameters": "Held constant across markets",
+    "west_2026_initial_check_already_observed": true
+  },
+  "model_selection_zone": "WEST",
+  "market_selected_at_utc": "2026-10-20T20:22:20.271594+00:00",
+  "final_zone": "NORTH",
+  "selected_zone_2024_2025_improvement_pct": 13.888965851371417
+}

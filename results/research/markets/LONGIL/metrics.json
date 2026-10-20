@@ -1,0 +1,167 @@
+{
+  "day_ahead_baseline": {
+    "days": 731,
+    "net_profit_usd": 62119.89608455678,
+    "mean_daily_profit_usd": 84.9793380089696,
+    "std_daily_profit_usd": 374.29141884717274,
+    "daily_pnl_sharpe": 4.337604046740579,
+    "max_daily_drawdown_usd": 197.90505263158047,
+    "profitable_days_pct": 74.6922024623803,
+    "active_days": 717,
+    "charge_mwh": 1486.6232686980607,
+    "discharge_mwh": 1341.6774999999998,
+    "fees_usd": 2828.3007686980613,
+    "wear_usd": 13416.775000000001
+  },
+  "adaptive_w0.5_d0.9_g0": {
+    "days": 731,
+    "net_profit_usd": 59744.7690816482,
+    "mean_daily_profit_usd": 81.73019026217264,
+    "std_daily_profit_usd": 288.63935877487813,
+    "daily_pnl_sharpe": 5.409702609985805,
+    "max_daily_drawdown_usd": 172.82300000000032,
+    "profitable_days_pct": 76.1969904240766,
+    "active_days": 718,
+    "charge_mwh": 1487.3628808864264,
+    "discharge_mwh": 1342.3449999999998,
+    "fees_usd": 2829.707880886427,
+    "wear_usd": 13423.45
+  },
+  "comparison": {
+    "profit_difference_usd": -2375.127002908579,
+    "profit_improvement_pct": -3.823456175257582,
+    "profit_target_pct": 15.0,
+    "profit_target_met": false,
+    "daily_pnl_sharpe_target": 1.5,
+    "sharpe_target_met": true
+  },
+  "intraday_data": {
+    "decision_hours": 17544,
+    "da_fallback_hours": 3,
+    "minimum_observation_lag_minutes": 10
+  },
+  "by_year": {
+    "2024": {
+      "adaptive_w0.5_d0.9_g0": {
+        "days": 366,
+        "net_profit_usd": 17044.50350574792,
+        "mean_daily_profit_usd": 46.569681709693775,
+        "std_daily_profit_usd": 143.01377596374135,
+        "daily_pnl_sharpe": 6.221166554166552,
+        "max_daily_drawdown_usd": 144.95440159279815,
+        "profitable_days_pct": 69.12568306010928,
+        "active_days": 356,
+        "charge_mwh": 727.4653739612188,
+        "discharge_mwh": 656.5374999999999,
+        "fees_usd": 1384.002873961219,
+        "wear_usd": 6565.375
+      },
+      "day_ahead_baseline": {
+        "days": 366,
+        "net_profit_usd": 17168.215406578947,
+        "mean_daily_profit_usd": 46.90769236770204,
+        "std_daily_profit_usd": 144.7559695431984,
+        "daily_pnl_sharpe": 6.190903264249951,
+        "max_daily_drawdown_usd": 173.64213656509673,
+        "profitable_days_pct": 66.93989071038251,
+        "active_days": 353,
+        "charge_mwh": 722.8310249307478,
+        "discharge_mwh": 652.355,
+        "fees_usd": 1375.186024930748,
+        "wear_usd": 6523.55
+      },
+      "comparison": {
+        "profit_difference_usd": -123.71190083102556,
+        "profit_improvement_pct": -0.7205868396992418,
+        "profit_target_pct": 15.0,
+        "profit_target_met": false,
+        "daily_pnl_sharpe_target": 1.5,
+        "sharpe_target_met": true
+      }
+    },
+    "2025": {
+      "adaptive_w0.5_d0.9_g0": {
+        "days": 365,
+        "net_profit_usd": 42700.26557590027,
+        "mean_daily_profit_usd": 116.98702897506922,
+        "std_daily_profit_usd": 379.5846120314775,
+        "daily_pnl_sharpe": 5.888104995554498,
+        "max_daily_drawdown_usd": 172.82300000000032,
+        "profitable_days_pct": 83.28767123287672,
+        "active_days": 362,
+        "charge_mwh": 759.8975069252077,
+        "discharge_mwh": 685.8074999999999,
+        "fees_usd": 1445.7050069252077,
+        "wear_usd": 6858.075
+      },
+      "day_ahead_baseline": {
+        "days": 365,
+        "net_profit_usd": 44951.68067797784,
+        "mean_daily_profit_usd": 123.15528952870642,
+        "std_daily_profit_usd": 506.9785017801188,
+        "daily_pnl_sharpe": 4.640982792145007,
+        "max_daily_drawdown_usd": 197.9050526315823,
+        "profitable_days_pct": 82.46575342465754,
+        "active_days": 364,
+        "charge_mwh": 763.792243767313,
+        "discharge_mwh": 689.3225,
+        "fees_usd": 1453.1147437673133,
+        "wear_usd": 6893.225
+      },
+      "comparison": {
+        "profit_difference_usd": -2251.4151020775753,
+        "profit_improvement_pct": -5.0085226361304,
+        "profit_target_pct": 15.0,
+        "profit_target_met": false,
+        "daily_pnl_sharpe_target": 1.5,
+        "sharpe_target_met": true
+      }
+    }
+  },
+  "assumptions": {
+    "start": "2024-01-01",
+    "end": "2025-12-31",
+    "zone": "LONGIL",
+    "battery": {
+      "capacity_mwh": 2.0,
+      "power_mw": 1.0,
+      "efficiency": 0.95,
+      "fee_per_mwh": 1.0,
+      "wear_per_mwh": 10.0,
+      "max_cycles_per_day": 1.0
+    },
+    "strategy": {
+      "name": "adaptive_w0.5_d0.9_g0",
+      "forecast": "adaptive",
+      "lookback_days": 28,
+      "bias_weight": 0.0,
+      "guard": 0.0,
+      "spot_weight": 0.5,
+      "decay": 0.9
+    },
+    "baseline": {
+      "name": "day_ahead_baseline",
+      "forecast": "day_ahead",
+      "lookback_days": 28,
+      "bias_weight": 1.0,
+      "guard": 0.0,
+      "spot_weight": 1.0,
+      "decay": 0.5
+    },
+    "generated_at_utc": "2026-10-20T20:20:30.920023+00:00",
+    "price_table_sha256": "2e96dace14520ae9ab624224ee5fb4e35c7ff0f398b903fe3355dd03a86042fd",
+    "source_sha256": {
+      "pipeline.py": "57b34882dcea3b2693f5210a5f65f781c4bb44abb25cd6d2152e49754ca4405d",
+      "strategy.py": "1ebe03237ce6b4534955ae0d7693ed7eb67e7ebb50603024dfd51fe263ae89d9",
+      "backtest.py": "fa83a0f05e5a82d49479abfe6a4f4bf6a82327fc01cea1663713a4a354933076"
+    },
+    "python_version": "3.14.2",
+    "package_versions": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "SQLAlchemy": "2.1.5"
+    },
+    "sharpe_definition": "sqrt(365) * mean(daily operating P&L) / sample std; rf=0"
+  }
+}

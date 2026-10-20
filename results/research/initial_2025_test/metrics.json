@@ -1,0 +1,128 @@
+{
+  "day_ahead_baseline": {
+    "days": 365,
+    "net_profit_usd": 17769.870289681436,
+    "mean_daily_profit_usd": 48.68457613611352,
+    "std_daily_profit_usd": 164.73734330309054,
+    "daily_pnl_sharpe": 5.646063621307568,
+    "max_daily_drawdown_usd": 261.0223074792266,
+    "profitable_days_pct": 67.67123287671232,
+    "active_days": 353,
+    "charge_mwh": 721.7257617728532,
+    "discharge_mwh": 651.3575,
+    "fees_usd": 1373.0832617728533,
+    "wear_usd": 6513.575000000001
+  },
+  "adaptive_w0.5_d0.5_g0": {
+    "days": 365,
+    "net_profit_usd": 17479.007655747922,
+    "mean_daily_profit_usd": 47.88769220752855,
+    "std_daily_profit_usd": 131.73588354967723,
+    "daily_pnl_sharpe": 6.944904079005866,
+    "max_daily_drawdown_usd": 150.2738421052636,
+    "profitable_days_pct": 72.05479452054794,
+    "active_days": 353,
+    "charge_mwh": 727.0221606648199,
+    "discharge_mwh": 656.1374999999999,
+    "fees_usd": 1383.15966066482,
+    "wear_usd": 6561.375
+  },
+  "comparison": {
+    "profit_difference_usd": -290.8626339335133,
+    "profit_improvement_pct": -1.6368303718143102,
+    "profit_target_pct": 15.0,
+    "profit_target_met": false,
+    "daily_pnl_sharpe_target": 1.5,
+    "sharpe_target_met": true
+  },
+  "intraday_data": {
+    "decision_hours": 8760,
+    "da_fallback_hours": 3,
+    "minimum_observation_lag_minutes": 10
+  },
+  "by_year": {
+    "2025": {
+      "adaptive_w0.5_d0.5_g0": {
+        "days": 365,
+        "net_profit_usd": 17479.007655747922,
+        "mean_daily_profit_usd": 47.88769220752855,
+        "std_daily_profit_usd": 131.73588354967723,
+        "daily_pnl_sharpe": 6.944904079005866,
+        "max_daily_drawdown_usd": 150.2738421052636,
+        "profitable_days_pct": 72.05479452054794,
+        "active_days": 353,
+        "charge_mwh": 727.0221606648199,
+        "discharge_mwh": 656.1374999999999,
+        "fees_usd": 1383.15966066482,
+        "wear_usd": 6561.375
+      },
+      "day_ahead_baseline": {
+        "days": 365,
+        "net_profit_usd": 17769.870289681436,
+        "mean_daily_profit_usd": 48.68457613611352,
+        "std_daily_profit_usd": 164.73734330309054,
+        "daily_pnl_sharpe": 5.646063621307568,
+        "max_daily_drawdown_usd": 261.0223074792266,
+        "profitable_days_pct": 67.67123287671232,
+        "active_days": 353,
+        "charge_mwh": 721.7257617728532,
+        "discharge_mwh": 651.3575,
+        "fees_usd": 1373.0832617728533,
+        "wear_usd": 6513.575000000001
+      },
+      "comparison": {
+        "profit_difference_usd": -290.8626339335133,
+        "profit_improvement_pct": -1.6368303718143102,
+        "profit_target_pct": 15.0,
+        "profit_target_met": false,
+        "daily_pnl_sharpe_target": 1.5,
+        "sharpe_target_met": true
+      }
+    }
+  },
+  "assumptions": {
+    "start": "2025-01-01",
+    "end": "2025-12-31",
+    "battery": {
+      "capacity_mwh": 2.0,
+      "power_mw": 1.0,
+      "efficiency": 0.95,
+      "fee_per_mwh": 1.0,
+      "wear_per_mwh": 10.0,
+      "max_cycles_per_day": 1.0
+    },
+    "strategy": {
+      "name": "adaptive_w0.5_d0.5_g0",
+      "forecast": "adaptive",
+      "lookback_days": 28,
+      "bias_weight": 0.0,
+      "guard": 0.0,
+      "spot_weight": 0.5,
+      "decay": 0.5
+    },
+    "baseline": {
+      "name": "day_ahead_baseline",
+      "forecast": "day_ahead",
+      "lookback_days": 28,
+      "bias_weight": 1.0,
+      "guard": 0.0,
+      "spot_weight": 1.0,
+      "decay": 0.5
+    },
+    "generated_at_utc": "2026-10-20T19:58:00.640172+00:00",
+    "price_table_sha256": "aef7f78d2e6a2904077bf251e531552f10bef7cace2ef9d6d5e356826946f19d",
+    "source_sha256": {
+      "pipeline.py": "d764146bea49de388162f279ab47e570bfd4fe5d8abf48ce4a19ba25c6ca8453",
+      "strategy.py": "cc09facace75a1d25801e6db3084c08bb4a13ebdb148c9e151d53edf448dfe9e",
+      "backtest.py": "5a7e4a0e6b007af6ba2f573eb98631eafb776ddf9c361c9efd05c6703e766936"
+    },
+    "python_version": "3.14.2",
+    "package_versions": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1",
+      "SQLAlchemy": "2.1.5"
+    },
+    "sharpe_definition": "sqrt(365) * mean(daily operating P&L) / sample std; rf=0"
+  }
+}
