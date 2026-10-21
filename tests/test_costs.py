@@ -9,7 +9,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from backtest import run_backtest, settle
+from backtest import annualized_ratio, metrics, run_backtest, settle
 from strategy import Battery, optimize_schedule
 
 
@@ -86,6 +86,30 @@ class CostTests(unittest.TestCase):
         expected_daily_fee = 2 / np.sqrt(0.9) + 2 * np.sqrt(0.9)
         np.testing.assert_allclose(free - paid, expected_daily_fee)
         self.assertEqual(list(paid.columns), ["optimized", "baseline", "perfect"])
+
+    def test_sharpe_uses_capital_returns_risk_free_and_sample_std(self):
+        index = pd.date_range("2024-01-01", periods=4, freq="D")
+        pnl = pd.Series([100.0, 300.0, 200.0, 400.0], index=index)
+        baseline = pd.Series([50.0, 250.0, 250.0, 250.0], index=index)
+        result = metrics(pnl, Battery(), baseline, capital_eur=10_000, risk_free_annual=0.05)
+        excess = pnl / 10_000 - (1.05 ** (1 / 365) - 1)
+        expected = excess.mean() / np.std(excess, ddof=1) * np.sqrt(365)
+        self.assertAlmostEqual(result["sharpe_annualized"], expected)
+        diff = pnl - baseline
+        self.assertAlmostEqual(result["ir_vs_baseline"],
+                               diff.mean() / np.std(diff, ddof=1) * np.sqrt(365))
+        self.assertTrue(np.isnan(metrics(baseline, Battery(), baseline, 10_000, 0.05)["ir_vs_baseline"]))
+
+    def test_positive_autocorrelation_lowers_adjusted_ratio(self):
+        rng = np.random.default_rng(0)
+        noise = rng.normal(size=2000)
+        iid = pd.Series(1 + noise)
+        persistent = pd.Series(1 + np.convolve(noise, np.ones(5) / 5, mode="same"))
+        plain, adjusted, _ = annualized_ratio(iid)
+        self.assertAlmostEqual(adjusted / plain, 1, delta=0.15)
+        plain, adjusted, rho1 = annualized_ratio(persistent)
+        self.assertGreater(rho1, 0.5)
+        self.assertLess(adjusted, 0.6 * plain)
 
     def test_costs_must_be_finite_and_nonnegative(self):
         for name in ("transaction_fee_eur_mwh", "degradation_eur_mwh"):
